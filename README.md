@@ -7,3 +7,4 @@ Todo:
 - Build decoder form
 - Homepage
 - About page explaining how the ciphers work
+- Change result dialog to bottomsheet on mobile
