@@ -1,0 +1,38 @@
+---
+import SelectBox from "../components/SelectBox.astro";
+---
+
+<div class="flex flex-wrap flex-col lg:flex-row lg:justify-between my-5">
+  <!-- Declaration of Independence  -->
+  <SelectBox
+    id="declaration"
+    name="keyType"
+    text="Declaration of Independence"
+    type="radio"
+    checked="true"
+  />
+  <!-- Hamlet -->
+  <SelectBox
+    id="hamlet"
+    name="keyType"
+    text="The Tragedy of Hamlet"
+    type="radio"
+  />
+  <!-- Custom -->
+  <SelectBox
+    id="customKeyButton"
+    name="keyType"
+    text="Custom Key"
+    type="radio"
+  />
+</div>
+<div>
+  <textarea
+    name="customKeyText"
+    id="customKeyText"
+    cols="30"
+    rows="10"
+    placeholder="Enter your custom key here"
+    class="w-full h-48 border-2 border-slate-200 rounded-md p-2 bg-slate-600 my-6 hidden"
+  ></textarea>
+</div>

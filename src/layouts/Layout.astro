@@ -1,0 +1,30 @@
+---
+export interface Props {
+  pageTitle: string;
+}
+
+import Navbar from "../components/Navbar.astro";
+
+const { pageTitle } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>{pageTitle}</title>
+  </head>
+  <body class="bg-gray-800">
+    <Navbar />
+    <div>
+      <slot />
+    </div>
+  </body>
+</html>

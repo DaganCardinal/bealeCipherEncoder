@@ -1,0 +1,26 @@
+---
+import SelectBox from "../components/SelectBox.astro";
+---
+
+<div class="flex flex-wrap justify-between my-5">
+  <SelectBox
+    id="hyphenated"
+    text="Split hyphenated words into two words"
+    name="hyphenated"
+    type="checkbox"
+  />
+  <SelectBox
+    id="doubleDash"
+    text="Treat double dash as space"
+    name="doubleDash"
+    type="checkbox"
+    checked="true"
+  />
+  <SelectBox
+    id="quotation"
+    text="Ignore quotation marks"
+    name="quotation"
+    type="checkbox"
+    checked="true"
+  />
+</div>

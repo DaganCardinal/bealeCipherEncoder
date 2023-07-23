@@ -1,0 +1,26 @@
+---
+let { type, name, id, text, checked } = Astro.props;
+
+if (!checked) {
+  checked = false;
+} else {
+  checked = true;
+}
+---
+
+<div class="mx-auto">
+  <input
+    type={type}
+    id={id}
+    value=""
+    class="hidden peer"
+    name={name}
+    checked={checked}
+  />
+  <label
+    for={id}
+    class="inline-flex items-center justify-center lg:w-64 w-64 h-20 my-4 px-4 py-2 text-gray-400 border-2 border-gray-500 rounded-lg cursor-pointer hover:bg-gray-400 hover:text-gray-100 peer-checked:border-sky-500 peer-checked:bg-blue-600 peer-checked:bg-opacity-20 transition-all duration-400 ease-in-out"
+  >
+    <div class="mx-auto text-center">{text}</div>
+  </label>
+</div>

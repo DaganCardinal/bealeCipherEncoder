@@ -1,0 +1,150 @@
+<div id="hamburgerNavButton">
+  <svg
+    viewBox="0 0 100 90"
+    id="listOpenButton"
+    class="stroke-stone-300 stroke-[10] h-full w-full"
+  >
+    <line
+      class="burgerTopLine line"
+      x1="10"
+      x2="90"
+      y1="20"
+      y2="20"
+      stroke-linecap="round"
+      stroke-dasharray="80"
+      stroke-dashoffset="0"
+    >
+    </line>
+    <line
+      class="burgerMiddleLine line"
+      x1="10"
+      x2="90"
+      y1="45"
+      y2="45"
+      stroke-linecap="round"
+      stroke-dasharray="80"
+      stroke-dashoffset="0"
+    >
+    </line>
+    <line
+      class="burgerSecondMiddleLine line"
+      x1="10"
+      x2="90"
+      y1="45"
+      y2="45"
+      stroke-linecap="round"
+      stroke-dasharray="80"
+      stroke-dashoffset="0"
+    >
+    </line>
+    <line
+      class="burgerBottomLine line"
+      x1="90"
+      x2="10"
+      y1="70"
+      y2="70"
+      stroke-linecap="round"
+      stroke-dasharray="80"
+      stroke-dashoffset="0"
+    >
+    </line>
+  </svg>
+</div>
+
+<style>
+  #hamburgerNavButton .line.burgerTopLine {
+    --rotation: 45deg;
+    transform-origin: 30% 20%;
+  }
+  #hamburgerNavButton .line.burgerMiddleLine {
+    --rotation: 45deg;
+    transform-origin: 75% 75%;
+  }
+  #hamburgerNavButton .line.burgerBottomLine {
+    --rotation: -45deg;
+    transform-origin: 34% 84%;
+  }
+  #hamburgerNavButton .line.burgerSecondMiddleLine {
+    --rotation: -45deg;
+    transform-origin: 25% 50%;
+  }
+  #hamburgerNavButton #listOpenButton {
+    transition: rotate 500ms, translate 300ms 200ms;
+  }
+  #hamburgerNavButton[aria-expanded="true"]
+    :is(
+      .burgerTopLine,
+      .burgerMiddleLine,
+      .burgerBottomLine,
+      .burgerSecondMiddleLine
+    ) {
+    animation: to-close-icon 0.5s forwards;
+  }
+  #hamburgerNavButton[aria-expanded="false"]
+    :is(
+      .burgerTopLine,
+      .burgerMiddleLine,
+      .burgerBottomLine,
+      .burgerSecondMiddleLine
+    ) {
+    animation: to-burger-icon 0.5s forwards;
+  }
+  #hamburgerNavButton[aria-expanded="true"] #listOpenButton {
+    rotate: 1turn;
+    translate: 10% 15%;
+  }
+
+  @keyframes to-close-icon {
+    0% {
+      stroke-dashoffset: 0;
+    }
+    30% {
+      stroke-dashoffset: 79;
+      rotate: calc(var(--rotation));
+    }
+    50% {
+      stroke-dashoffset: 79;
+      rotate: calc(var(--rotation));
+      opacity: calc(var(--opacity));
+    }
+    100% {
+      stroke-dashoffset: 45;
+      opacity: var(--opacity);
+      rotate: var(--rotation);
+    }
+  }
+
+  @keyframes to-burger-icon {
+    0% {
+      stroke-dashoffset: 45;
+      opacity: var(--opacity);
+      rotate: var(--rotation);
+    }
+    30% {
+      stroke-dashoffset: 79;
+      rotate: calc(var(--rotation));
+      opacity: calc(var(--opacity));
+    }
+    50% {
+      stroke-dashoffset: 79;
+      rotate: calc(var(--rotation));
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+</style>
+
+<script>
+  const mobileNavButton = document.getElementById("hamburgerNavButton");
+  mobileNavButton?.addEventListener("click", () => {
+    if (
+      !mobileNavButton.getAttribute("aria-expanded") ||
+      mobileNavButton.getAttribute("aria-expanded") === "false"
+    ) {
+      mobileNavButton.setAttribute("aria-expanded", "true");
+    } else {
+      mobileNavButton.setAttribute("aria-expanded", "false");
+    }
+  });
+</script>

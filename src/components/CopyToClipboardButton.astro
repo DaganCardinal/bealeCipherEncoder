@@ -1,0 +1,193 @@
+<svg
+  viewBox="0 0 90 90"
+  class="stroke-stone-800 dark:stroke-stone-400 stroke-[6] h-full w-full cursor-pointer transition-all ease-in-out duration-200"
+  id="clipboardButton"
+>
+  <g class="backBox box">
+    <line
+      class="backBoxLeftLine line"
+      x1="10"
+      x2="10"
+      y1="40"
+      y2="80"
+      stroke-dashoffset="0"
+      stroke-dasharray="40"
+      stroke-linecap="round"></line>
+    <line
+      class="backBoxRightLine line"
+      x1="50"
+      x2="50"
+      y1="80"
+      y2="40"
+      stroke-dashoffset="30"
+      stroke-dasharray="40"></line>
+    <line
+      class="backBoxBottomLine line"
+      x1="10"
+      x2="50"
+      y1="80"
+      y2="80"
+      stroke-dashoffset="0"
+      stroke-dasharray="40"
+      stroke-linecap="round"></line>
+    <line
+      class="backBoxTopLine line"
+      x1="10"
+      x2="50"
+      y1="40"
+      y2="40"
+      stroke-dashoffset="30"
+      stroke-dasharray="40"></line>
+  </g>
+  <g class="frontBox box">
+    <line
+      class="frontBoxLeftLine line"
+      x1="25"
+      x2="25"
+      y1="65"
+      y2="25"
+      stroke-dashoffset="0"
+      stroke-dasharray="40"
+      stroke-linecap="round"></line>
+    <line
+      class="frontBoxRightLine line"
+      x1="65"
+      x2="65"
+      y1="25"
+      y2="65"
+      stroke-dashoffset="0"
+      stroke-dasharray="40"
+      stroke-linecap="round"></line>
+    <line
+      class="frontBoxBottomLine line"
+      x1="25"
+      x2="65"
+      y1="65"
+      y2="65"
+      stroke-dashoffset="0"
+      stroke-dasharray="40"
+      stroke-linecap="round"></line>
+    <line
+      class="frontBoxTopLine line"
+      x1="25"
+      x2="65"
+      y1="25"
+      y2="25"
+      stroke-dashoffset="0"
+      stroke-dasharray="40"
+      stroke-linecap="round"></line>
+  </g>
+</svg>
+
+<style>
+  #clipboardButton .frontBox .frontBoxLeftLine {
+    --fullOffset: 39.9;
+    --finalOffset: 28;
+  }
+  #clipboardButton .frontBox .frontBoxBottomLine {
+    --fullOffset: 39.9;
+    --finalOffset: 2;
+  }
+  #clipboardButton .frontBox :is(.frontBoxTopLine, .frontBoxRightLine) {
+    --fullOffset: 40;
+    --finalOffset: 40;
+    --opacity: 0;
+  }
+  #clipboardButton :is(.line) {
+    animation: backToCopy 0.9s forwards;
+  }
+  #clipboardButton.copied .backBox :is(.line) {
+    stroke-linecap: round;
+  }
+  #clipboardButton .frontBox {
+    --rotation: -45deg;
+    --translateStart: -17% 17%;
+    --translateUp: -40% 0%;
+    --bumpDown: -40% 55%;
+    --reverseOpacity: 0;
+    --checkColor: #02c723;
+    transition: rotate 1s 0.45s, translate 1s 100ms;
+    transform-origin: top right;
+    --finalTranslate: -40% 45%;
+  }
+  #clipboardButton .backBox .backBoxRightLine {
+    --finalOffset: 20;
+  }
+  #clipboardButton .backBox .backBoxTopLine {
+    --finalOffset: 8;
+  }
+  #clipboardButton.copied .backBox {
+    --bumpDown: 0% 10%;
+    transition: all 0.65s 0.64s;
+  }
+  #clipboardButton.copied :is(.line) {
+    animation: copySuccess 1s forwards;
+  }
+  @keyframes copySuccess {
+    0% {
+      stroke-dashoffset: 0;
+    }
+    10% {
+      translate: var(--translateStart);
+    }
+    20% {
+      stroke-dashoffset: var(--fullOffset);
+      opacity: var(--opacity);
+      translate: var(--translateStart);
+    }
+    60% {
+      stroke-dashoffset: var(--fullOffset);
+      translate: var(--translateUp);
+      stroke: inherit;
+    }
+    70% {
+      stroke-dashoffset: var(--fullOffset);
+      translate: var(--bumpDown);
+      stroke: var(--checkColor);
+    }
+    100% {
+      rotate: var(--rotation);
+      stroke-dashoffset: var(--finalOffset);
+      translate: var(--finalTranslate);
+      stroke: var(--checkColor);
+    }
+  }
+  @keyframes backToCopy {
+    0% {
+      rotate: var(--rotation);
+      stroke-dashoffset: var(--finalOffset);
+      translate: var(--finalTranslate);
+      stroke: var(--checkColor);
+      stroke-linecap: round;
+    }
+    30% {
+      translate: var(--translateStart);
+      stroke-dashoffset: var(--fullOffset);
+      opacity: var(--opacity);
+      stroke-linecap: round;
+      scale: 1;
+    }
+    40% {
+      translate: var(--translateStart);
+      stroke-dashoffset: var(--fullOffset);
+      opacity: var(--reverseOpacity);
+      stroke-linecap: round;
+    }
+    60% {
+      translate: var(--translateStart);
+      opacity: var(--reverseOpacity);
+      stroke-dashoffset: 0;
+    }
+    70% {
+      translate: var(--translateStart);
+      opacity: calc(var(--reverseOpacity));
+      scale: 0.75;
+    }
+    80% {
+      translate: var(--translateStart);
+    }
+    100% {
+      /* stroke-dashoffset: 0; */
+    }
+  }
+</style>
