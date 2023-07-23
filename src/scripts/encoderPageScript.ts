@@ -26,6 +26,12 @@ function showStep(num: number) {
         header.classList.remove(...activeHeader);
         header.classList.add(...inactiveHeader);
     })
+    if (num == 0) {
+        prevButton!.classList.add("hidden");
+    }
+    if (num > 0) {
+        prevButton!.classList.remove("hidden");
+    }
     if (num == 2) {
         nextButton!.textContent = "Encode"
     }

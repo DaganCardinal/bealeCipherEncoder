@@ -7,18 +7,20 @@ import ResultsModal from "../components/ResultsModal.astro";
 ---
 
 <Layout pageTitle="Beale Cipher Encoder">
-  <div class="mt-20 lg:mx-48 mx-3 text-lg font-medium text-slate-200">
+  <div class="mt-12 lg:w-1/2 mx-auto text-lg font-medium text-slate-200">
     <!-- Form section headers -->
     <div
-      class="flex flex-row text-slate-200 text-2xl font-semibold justify-between lg:mx-36 my-12 mx-8"
+      class="flex flex-row text-slate-200 text-xl font-semibold justify-center mb-8"
     >
-      <h2 id="formHeader" class="text-slate-400">Message</h2>
-      <h2 id="formHeader">Key</h2>
-      <h2 id="formHeader">Options</h2>
+      <h2 id="formHeader" class="mx-4">Message</h2>
+      <p class="text-slate-400">></p>
+      <h2 id="formHeader" class="mx-4">Key</h2>
+      <p class="text-slate-400">></p>
+      <h2 id="formHeader" class="mx-4">Options</h2>
     </div>
     <form action="" id="encoderForm">
       <!-- Message section -->
-      <div id="formSection">
+      <div id="formSection" class="text-center">
         <p>Enter the message you would like to encode</p>
         <textarea
           name="message"
@@ -29,12 +31,12 @@ import ResultsModal from "../components/ResultsModal.astro";
         ></textarea>
       </div>
       <!-- Key section -->
-      <div id="formSection">
+      <div id="formSection" class="text-center">
         <p>Select the key you would like to use to encode your message</p>
         <KeyOptions />
       </div>
       <!-- Options section -->
-      <div id="formSection">
+      <div id="formSection" class="text-center">
         <p>Choose options for encoding your message</p>
         <p class="italic my-3 text-sm">
           By default, the encoder will replace new line characters and other
