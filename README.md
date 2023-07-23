@@ -10,3 +10,4 @@ Todo:
 - Change result dialog to bottomsheet on mobile
 - Build animation for encoding message
 - Build animation for decoding message
+- Add validation to forms

@@ -89,6 +89,9 @@ function determineKey() {
 function handleFormattingOptions(message: string, key: string) {
     const formattingOptions = getCheckboxValues("checkbox")
 
+    message = message.toLowerCase()
+    message = message.replaceAll(' ', '')
+    key = key.toLowerCase()
     message = replaceNewLineChars(message)
     key = replaceNewLineChars(key)
 

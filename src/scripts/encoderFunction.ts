@@ -34,7 +34,7 @@ function encodeMessage(message: string, key: string): string {
             } else {
 
                 // If it's still not found, throw an error
-                throw new Error(`Letter ${word.charAt(0)} not found in key`);
+                throw new Error(`Letter ${word.charAt(0)} does not appear as the first letter in any word in the key!`);
 
             }
         }
