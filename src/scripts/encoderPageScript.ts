@@ -54,15 +54,24 @@ prevButton!.addEventListener("click", () => {
 })
 
 function handleEncodeClick() {
+    // Get key and message
     let messageInput = document.getElementById("message") as HTMLInputElement;
     let message = messageInput.value;
     let key = determineKey();
+
+    // Format key and message
     let formattedStrings = handleFormattingOptions(message, key);
     message = formattedStrings.message;
     key = formattedStrings.key;
-    let result = encodeMessage(message, key);
-    resultDialogResults!.textContent = result;
-    resultDialog!.showModal()
+
+    try {
+        let encodedMessage = encodeMessage(message, key);
+        resultDialogResults!.textContent = encodedMessage;
+        resultDialog.showModal();
+    } catch (err) {
+        alert(err)
+    }
+
 }
 
 function determineKey() {

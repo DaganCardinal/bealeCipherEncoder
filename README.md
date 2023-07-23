@@ -8,3 +8,5 @@ Todo:
 - Homepage
 - About page explaining how the ciphers work
 - Change result dialog to bottomsheet on mobile
+- Build animation for encoding message
+- Build animation for decoding message

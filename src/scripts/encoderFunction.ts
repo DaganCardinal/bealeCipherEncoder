@@ -33,8 +33,8 @@ function encodeMessage(message: string, key: string): string {
 
             } else {
 
-                // If it's still not found, return an error message
-                return `Letter <b>${word.charAt(0)}</b> not found in key`
+                // If it's still not found, throw an error
+                throw new Error(`Letter ${word.charAt(0)} not found in key`);
 
             }
         }
