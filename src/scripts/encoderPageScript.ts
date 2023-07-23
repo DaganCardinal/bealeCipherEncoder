@@ -1,6 +1,6 @@
 export { }
 import { encodeMessage } from "./encoderFunction";
-import { getCheckboxValues, splitHyphenatedWords, replaceNewLineChars, replaceDoubleDashes, removeQuotationMarks, copyToClipboard } from "./generalFunctions";
+import { getCheckboxValues, splitHyphenatedWords, replaceNewLineChars, replaceDoubleDashes, removeQuotationMarks, copyToClipboard, triggerClipboardAnimation } from "./generalFunctions";
 
 let step = 0;
 const nextButton = document.querySelector("#nextButton");
@@ -127,10 +127,7 @@ copyToClipboardButton!.addEventListener("click", () => {
     copyToClipboard(resultDialogResults!)
         .then((result) => {
             if (result) {
-                copyToClipboardButton!.classList.add("copied");
-                setTimeout(() => {
-                    copyToClipboardButton!.classList.remove("copied");
-                }, 4000);
+                triggerClipboardAnimation()
             } else {
                 alert("Unable to copy to clipboard, please try again")
             }

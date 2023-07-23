@@ -93,10 +93,10 @@
     --finalOffset: 40;
     --opacity: 0;
   }
-  #clipboardButton :is(.line) {
+  #clipboardButton[aria-expanded="false"] :is(.line) {
     animation: backToCopy 0.9s forwards;
   }
-  #clipboardButton.copied .backBox :is(.line) {
+  #clipboardButton[aria-expanded="true"] .backBox :is(.line) {
     stroke-linecap: round;
   }
   #clipboardButton .frontBox {
@@ -116,11 +116,11 @@
   #clipboardButton .backBox .backBoxTopLine {
     --finalOffset: 8;
   }
-  #clipboardButton.copied .backBox {
+  #clipboardButton[aria-expanded="true"] .backBox {
     --bumpDown: 0% 10%;
     transition: all 0.65s 0.64s;
   }
-  #clipboardButton.copied :is(.line) {
+  #clipboardButton[aria-expanded="true"] :is(.line) {
     animation: copySuccess 1s forwards;
   }
   @keyframes copySuccess {

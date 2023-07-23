@@ -27,6 +27,17 @@ export async function copyToClipboard(copyElement: HTMLElement): Promise<boolean
     }
 }
 
+export function triggerClipboardAnimation() {
+    const copyToClipboardButton = document.getElementById("clipboardButton")
+    if (!copyToClipboardButton?.getAttribute('aria-expanded') || copyToClipboardButton.getAttribute('aria-expanded') == 'false') {
+        copyToClipboardButton?.setAttribute('aria-expanded', 'true')
+        setTimeout(() => {
+            copyToClipboardButton?.setAttribute('aria-expanded', 'false')
+        }, 4000)
+    } else {
+        copyToClipboardButton?.setAttribute('aria-expanded', 'false')
+    }
+}
 
 // // //
 // Formatting functions
